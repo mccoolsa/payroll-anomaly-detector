@@ -72,6 +72,8 @@ running database. `payroll-intelligence-theme.json` is the theme it uses.
 The Streamlit app is the working investigation tool. The Power BI report is the
 reporting view over the same data.
 
+![Power BI executive overview](docs/assets/powerbi-executive-overview.png)
+
 ## How the detection works
 
 Six controls run against every payment:
