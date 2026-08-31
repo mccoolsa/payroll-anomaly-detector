@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+__pycache__
+*.pyc
+*.db
+.coverage
+.pytest_cache
+.ruff_cache
+data/generated
+models/*
+tests
+docs
+reports
+*.pbix
+payroll-intelligence-theme.json

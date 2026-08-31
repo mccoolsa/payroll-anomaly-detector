@@ -1,0 +1,49 @@
+services:
+  database:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: payroll
+      POSTGRES_USER: payroll
+      POSTGRES_PASSWORD: payroll
+    ports:
+      - "5433:5432"
+    volumes:
+      - payroll-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payroll -d payroll"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  bootstrap:
+    build: .
+    environment:
+      PAYROLL_DATABASE_URL: postgresql+psycopg://payroll:payroll@database:5432/payroll
+      PAYROLL_ENVIRONMENT: demonstration
+    command:
+      - sh
+      - -c
+      - python scripts/init_db.py && python scripts/bootstrap_demo.py
+    volumes:
+      - payroll-model-artifacts:/app/models
+    depends_on:
+      database:
+        condition: service_healthy
+
+  dashboard:
+    build: .
+    environment:
+      PAYROLL_DATABASE_URL: postgresql+psycopg://payroll:payroll@database:5432/payroll
+      PAYROLL_ENVIRONMENT: demonstration
+    ports:
+      - "8501:8501"
+    volumes:
+      - payroll-model-artifacts:/app/models:ro
+    depends_on:
+      bootstrap:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  payroll-postgres-data:
+  payroll-model-artifacts:

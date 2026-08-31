@@ -1,0 +1,45 @@
+{
+  "name": "Payroll Intelligence",
+  "dataColors": [
+    "#0F9D8A",
+    "#3056D3",
+    "#7C5CFC",
+    "#F59E0B",
+    "#E05252",
+    "#4E7C8A",
+    "#14B8A6",
+    "#64748B"
+  ],
+  "background": "#F4F7FB",
+  "foreground": "#172033",
+  "tableAccent": "#0F9D8A",
+  "good": "#16A34A",
+  "neutral": "#F59E0B",
+  "bad": "#DC2626",
+  "maximum": "#7C5CFC",
+  "center": "#14B8A6",
+  "minimum": "#DCE7EF",
+  "null": "#94A3B8",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28,
+      "color": "#172033"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#172033"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#172033"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#536273"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "dataset": {
+    "employees": 250,
+    "bank_accounts": 254,
+    "payroll_runs": 18,
+    "payments": 4450,
+    "anomaly_labels": 24
+  },
+  "rule_baseline": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "true_positives": 24,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "recall_by_type": {
+      "duplicate_payment": 1.0,
+      "unexpected_pay_increase": 1.0,
+      "abnormal_deduction": 1.0,
+      "recent_bank_change": 1.0,
+      "post_termination_payment": 1.0,
+      "invalid_net_gross_ratio": 1.0
+    }
+  },
+  "isolation_forest": {
+    "split_date": "2025-01-28",
+    "threshold": 0.0001,
+    "precision": 0.1905,
+    "recall": 0.3333,
+    "f1": 0.2424,
+    "precision_at_k": 0.2083,
+    "recall_at_k": 0.4167,
+    "top_k": 48,
+    "flagged_records": 42,
+    "evaluation_records": 1457
+  },
+  "hybrid_alerts": 58,
+  "segment_summary": {
+    "department": {
+      "highest_alert_segment": "People",
+      "highest_alert_rate": 0.0417,
+      "lowest_alert_segment": "Operations",
+      "lowest_alert_rate": 0.0071,
+      "max_false_positive_rate": 0.035
+    },
+    "job_grade": {
+      "highest_alert_segment": "G3",
+      "highest_alert_rate": 0.02,
+      "lowest_alert_segment": "G1",
+      "lowest_alert_rate": 0.0071,
+      "max_false_positive_rate": 0.0144
+    },
+    "location": {
+      "highest_alert_segment": "London",
+      "highest_alert_rate": 0.0333,
+      "lowest_alert_segment": "Bristol",
+      "lowest_alert_rate": 0.0045,
+      "max_false_positive_rate": 0.0277
+    }
+  },
+  "caveat": "Segment results use synthetic operational attributes and do not establish fairness for a real workforce."
+}
